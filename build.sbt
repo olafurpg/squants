@@ -14,9 +14,12 @@ lazy val squants = crossProject
   .jvmSettings(
     osgiSettings,
     tutSettings,
+    scalacOptions := Seq("-language:Scala2"),
+    scalaVersion := dottyLatestNightlyBuild.get,
     tutTargetDirectory := file("."),
     tutSourceDirectory := file("shared") / "src" / "main" / "tut"
   )
+  .jvmConfigure(_.enablePlugins(DottyPlugin))
   .jsSettings(
     parallelExecution in Test := false,
     excludeFilter in Test := "*Serializer.scala" || "*SerializerSpec.scala"
