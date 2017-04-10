@@ -8,7 +8,7 @@
 
 package squants.motion
 
-import squants.{ Time, _ }
+import squants._
 import squants.space.{ Feet, InternationalMiles, Kilometers, NauticalMiles, UsMiles }
 import squants.time.{ Seconds, _ }
 
