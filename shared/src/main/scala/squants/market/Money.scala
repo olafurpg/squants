@@ -13,7 +13,7 @@ import squants._
 import scala.util.{Failure, Success, Try}
 import scala.language.implicitConversions
 import scala.math.BigDecimal.RoundingMode
-import scala.math.BigDecimal.RoundingMode.RoundingMode
+//import scala.math.BigDecimal.RoundingMode.RoundingMode
 
 /**
  * Represents a quantity of Money.
@@ -341,7 +341,7 @@ final class Money private (val amount: BigDecimal)(val currency: Currency)
     * @param mode RoundingMode - defaults to HALF_EVEN
     * @return Quantity
     */
-  override def rounded(scale: Int, mode: RoundingMode = RoundingMode.HALF_EVEN) = currency(amount.setScale(scale, mode))
+  override def rounded(scale: Int, mode: RoundingMode.Value = RoundingMode.HALF_EVEN) = currency(amount.setScale(scale, mode))
 
   /**
     * Applies a function to the underlying amount of the Money, returning a Money in the same Currency
@@ -430,8 +430,8 @@ object MoneyConversions {
   lazy val euro = Money(1, EUR)
   lazy val yen = Money(1, JPY)
 
-  implicit def fromLong(l: Long) = new MoneyConversions(BigDecimal(l))
-  implicit def fromDouble(d: Double) = new MoneyConversions(BigDecimal(d))
+  implicit def fromLong(l: Long): MoneyConversions[scala.math.BigDecimal] = new MoneyConversions(BigDecimal(l))
+  implicit def fromDouble(d: Double): MoneyConversions[scala.math.BigDecimal] = new MoneyConversions(BigDecimal(d))
 
   implicit class MoneyConversions[A](n: A)(implicit num: Numeric[A]) {
     def money(implicit context: MoneyContext) = Money(n, context.defaultCurrency)

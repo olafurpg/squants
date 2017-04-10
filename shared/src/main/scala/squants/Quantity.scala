@@ -9,7 +9,7 @@
 package squants
 
 import scala.math.BigDecimal.RoundingMode
-import scala.math.BigDecimal.RoundingMode.RoundingMode
+//import scala.math.BigDecimal.RoundingMode.RoundingMode
 
 /**
  * A base class for measurable quantities, instances of which contain a value and a unit
@@ -158,7 +158,7 @@ abstract class Quantity[A <: Quantity[A]] extends Serializable with Ordered[A] {
     * @param mode RoundingMode - defaults to HALF_EVEN
     * @return Quantity
     */
-  def rounded(scale: Int, mode: RoundingMode = RoundingMode.HALF_EVEN): A = unit(BigDecimal(value).setScale(scale, mode))
+  def rounded(scale: Int, mode: RoundingMode.Value = RoundingMode.HALF_EVEN): A = unit(BigDecimal(value).setScale(scale, mode))
 
   /**
    * Override of equals method
