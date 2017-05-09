@@ -8,7 +8,7 @@
 
 package squants.energy
 
-import squants._
+import squants.{Energy =>_, _}
 import squants.electro.{ Amperes, ElectricCurrent, ElectricPotential, Volts }
 import squants.radio.{ Irradiance, RadiantIntensity, SpectralPower, _ }
 import squants.space.{ SolidAngle, SquareMeters, SquaredRadians }
