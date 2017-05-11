@@ -8,7 +8,7 @@
 
 package squants.motion
 
-import squants._
+import squants.{Force => _, _}
 import squants.mass.Kilograms
 import squants.time.{ SecondTimeIntegral, Seconds, TimeIntegral, TimeSquared }
 

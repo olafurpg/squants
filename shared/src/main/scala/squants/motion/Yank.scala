@@ -8,7 +8,7 @@
 
 package squants.motion
 
-import squants._
+import squants.{Force => _, _}
 import squants.time.{ SecondTimeDerivative, TimeDerivative, TimeSquared }
 
 /**
